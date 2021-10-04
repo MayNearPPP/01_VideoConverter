@@ -1,4 +1,4 @@
-### Demo Converter v1.2
+# Demo Converter v1.2
 
 import os
 import moviepy
@@ -11,7 +11,7 @@ path = os.path.dirname(os.path.dirname(os.path.realpath(sys.executable)))
 
 INPUT_FILES = input("输入文件：")
 
-INPUT_FILES = INPUT_FILES.replace('/','\\')
+INPUT_FILES = INPUT_FILES.replace('/', '\\')
 dirName, oringinName = os.path.split(INPUT_FILES)
 footageName = oringinName.replace('.mov', '')
 sequenceDirName = dirName+f'\\_{footageName}Sequence'
@@ -25,21 +25,22 @@ outputVideo = os.path.join(dirName, outputVideoName)
 # print(outputVideoName)
 # print(outputVideo)
 
-## 转JPG序列
+# 转JPG序列
 clip = VideoFileClip(INPUT_FILES)
 fps = clip.reader.fps
 
-for i, frame in enumerate(clip.iter_frames()) :
+for i, frame in enumerate(clip.iter_frames()):
     newSequenceFilepath = os.path.join(sequenceDirName, f"{i}.jpg")
     # print(f"frame at {i} seconds saved at {new_img_filepath}")
     newImg = Image.fromarray(frame)
     newImg.save(newSequenceFilepath)
     print(f"{i} ")
 
-## 转MP4视频
+# 转MP4视频
 
 this_dir = os.listdir(sequenceDirName)
-filepaths = [os.path.join(sequenceDirName, fname) for fname in this_dir if fname.endswith("jpg")]
+filepaths = [os.path.join(sequenceDirName, fname)
+             for fname in this_dir if fname.endswith("jpg")]
 
 # print(filepaths)
 
