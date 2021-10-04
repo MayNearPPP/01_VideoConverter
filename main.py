@@ -1,5 +1,4 @@
-### Demo Converter v1.0
-#pyinstaller -F -i D:\Programming\2021\04\01_VideoConverter\data\logo\DemoConverterLogo.ico main.py --clean
+### Demo Converter v1.2
 
 import os
 import moviepy
